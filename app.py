@@ -23,6 +23,22 @@ st.markdown("""
 header {visibility: hidden;}
 footer {visibility: hidden;}
 
+/* Buttons */
+div[data-testid="stButton"] button, button[kind="secondary"], button[kind="secondaryFormSubmit"] {
+    background: linear-gradient(135deg, #00F5FF, #9B5DE5) !important;
+    color: #050A14 !important;
+    border: none !important;
+    font-family: 'Orbitron', monospace !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    border-radius: 8px !important;
+    transition: transform 0.2s !important;
+}
+div[data-testid="stButton"] button:hover, button[kind="secondary"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 245, 255, 0.3) !important;
+}
+
 /* Headings */
 h1, h2, h3 {
     font-family: 'Orbitron', monospace !important;
@@ -45,6 +61,9 @@ h1, h2, h3 {
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -357,3 +376,10 @@ elif nav == "ASSESS":
                     st.session_state.q_idx += 1
                     st.session_state.quiz_submitted = False
                     st.rerun()
+
+# Subtle Attribution
+st.markdown("""
+<div style="position: fixed; bottom: 10px; right: 15px; opacity: 0.3; font-size: 10px; z-index: 9999; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.3">
+  <b>Aarshdeep Kaur</b> • B.Tech (Data Science) • <a href="https://linkedin.com/in/aarshdeepkaur" target="_blank" style="color: #00F5FF; text-decoration: none;">LinkedIn</a>
+</div>
+""", unsafe_allow_html=True)
